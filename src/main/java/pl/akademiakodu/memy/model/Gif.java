@@ -6,6 +6,13 @@ public class Gif {
     private String name;
     private boolean favorite;
 
+    Gif(){}
+
+    public Gif(Integer id, String name, boolean favorite) {
+        this.id = id;
+        this.name = name;
+        this.favorite = favorite;
+    }
 
     public Gif(String name, boolean favorite) {
         this.name = name;
@@ -38,5 +45,14 @@ public class Gif {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Gif{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", favorite=" + favorite +
+                '}';
     }
 }

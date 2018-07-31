@@ -45,8 +45,12 @@
     </div>
     <div class="gifs container">
         <div class="row">
-            <h1>Miejsce na wyświetlanie gifów:)</h1>
-            <p th:text="${gifs}"/>
+            <div th:each="fav : ${favs}" class="col s12 l4">
+                <a th:href="@{|/gif/${fav.name}|}">
+                    <img th:src="@{|${fav.name}|}" />
+                          <!--<a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a>-->
+                </a>
+            </div>
         </div>
     </div>
 
