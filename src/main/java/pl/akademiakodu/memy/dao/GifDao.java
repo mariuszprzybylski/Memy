@@ -12,5 +12,4 @@ public interface GifDao  {
 
     List<Gif> findAllFavorites();
 
-    List<Gif> search();
 }

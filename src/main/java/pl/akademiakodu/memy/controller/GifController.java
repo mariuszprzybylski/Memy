@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.akademiakodu.memy.dao.GifDao;
 import pl.akademiakodu.memy.dao.GifStaticDao;
 import pl.akademiakodu.memy.model.Gif;
+import pl.akademiakodu.memy.model.Search;
 
 import javax.swing.*;
 
@@ -33,10 +34,9 @@ public class GifController {
         return "favorites";
     }
 
-    @GetMapping("search")
-    public String searchAll (ModelMap modelMap) {
-        modelMap.put("search",gifDao.search());
-
+    @GetMapping("/search")
+    public String searchAll (@ModelAttribute Search search, ModelMap modelMap) {
+        modelMap.put("search",search.search(gifDao.findAll(), search.getQ()));
         return "home";
     }
 }
