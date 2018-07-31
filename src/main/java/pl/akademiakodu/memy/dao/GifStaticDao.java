@@ -7,21 +7,35 @@ import java.util.List;
 
 public class GifStaticDao implements GifDao {
 
-   List<Gif> gifs = new ArrayList<>();
+   public static List<Gif> gifs = new ArrayList<>();
 
 
     @Override
     public List<Gif> findAll() {
+        gifs.add(1,);
         return gifs;
     }
 
     @Override
     public void addMem(Gif gif) {
 
+        gifs.add(gif);
+
     }
 
     @Override
     public List<Gif> findAllFavorites() {
-        return null;
+
+        List<Gif> favgif = new ArrayList<>();
+
+        for (Gif gif: gifs) {
+
+            if ((gif.isFavorite() == true)) {
+                favgif.add(gif);
+            }
+        }
+        return favgif;
+
+
     }
 }

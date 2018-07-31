@@ -5,6 +5,7 @@ public class Gif {
     private String name;
     private boolean favorite;
 
+
     public Gif(String name, boolean favorite) {
         this.name = name;
         this.favorite = favorite;

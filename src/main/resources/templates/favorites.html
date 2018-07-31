@@ -16,7 +16,7 @@
     <div class="navbar-fixed">
         <nav>
             <div class="container">
-                <a th:href="@{/}" class="brand-logo">gif<span>.</span>lib</a>
+                <a th:href="@{/favorites}" class="brand-logo">gif<span>.</span>lib</a>
                 <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a th:href="@{/}">Explore</a></li>
@@ -46,6 +46,7 @@
     <div class="gifs container">
         <div class="row">
             <h1>Miejsce na wyświetlanie gifów:)</h1>
+            <p th:text="${gifs}"/>
         </div>
     </div>
 
