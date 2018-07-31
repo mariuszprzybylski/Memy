@@ -1,4 +1,4 @@
-package pl.akademiakodu.memy;
+package pl.akademiakodu.memy.controller;
 
 
 import org.springframework.stereotype.Controller;
