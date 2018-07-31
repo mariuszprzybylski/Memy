@@ -2,11 +2,14 @@ package pl.akademiakodu.memy;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class GifController {
 
+
+    private GifDao gifDao = new GifStaticDao();
 
     @GetMapping("/")
     public String home(){
@@ -14,3 +17,9 @@ public class GifController {
     }
 
 }
+
+    @GetMapping ("/favorites")
+    public String findFavorites (ModelMap modelMap) {
+        modelMap.put("mems", gifDao.findFavorites());
+        return "favorites";
+    }
