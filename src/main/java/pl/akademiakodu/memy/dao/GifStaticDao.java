@@ -11,8 +11,7 @@ public class GifStaticDao implements GifDao {
 
     private static List<Gif> gifs = new ArrayList<>();
 
-    @Override
-    public List<Gif> findAll() {
+  static {
 
         gifs.add(new Gif(1, "gifs/android-explosion.gif",true));
         gifs.add(new Gif(2, "gifs/ben-and-mike.gif"));
@@ -21,9 +20,11 @@ public class GifStaticDao implements GifDao {
         gifs.add(new Gif(5, "gifs/cowboy-coder.gif"));
         gifs.add(new Gif(6, "gifs/infinite-andrew.gif",true));
 
-        return gifs;
     }
 
+    public List<Gif> findAll() {
+        return gifs;
+    }
     @Override
     public void addGif(Gif gif) {
 
