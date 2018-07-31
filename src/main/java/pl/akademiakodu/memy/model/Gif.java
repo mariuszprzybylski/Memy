@@ -2,6 +2,7 @@ package pl.akademiakodu.memy.model;
 
 public class Gif {
 
+    private Integer id;
     private String name;
     private boolean favorite;
 
@@ -9,6 +10,11 @@ public class Gif {
     public Gif(String name, boolean favorite) {
         this.name = name;
         this.favorite = favorite;
+    }
+
+    public Gif(Integer id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public String getName() {
@@ -25,5 +31,12 @@ public class Gif {
 
     public void setFavorite(boolean favorite) {
         this.favorite = favorite;
+    }
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

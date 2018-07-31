@@ -44,8 +44,11 @@
         </div>
     </div>
     <div class="gifs container">
+        <th th:each="gif :${gifs}">
+        <th th:src="${gifs.findAll()}">
+
         <div class="row">
-           <h1>Miejsce na wyświetlenie gifów:)</h1>
+           <h1></h1>
         </div>
     </div>
 
