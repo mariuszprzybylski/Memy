@@ -38,4 +38,13 @@ public class Gif {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "Gif{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", favorite=" + favorite +
+                '}';
+    }
 }
