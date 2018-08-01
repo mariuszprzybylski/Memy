@@ -5,10 +5,7 @@ import org.springframework.boot.autoconfigure.info.ProjectInfoProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.akademiakodu.memy.dao.GifDao;
 import pl.akademiakodu.memy.dao.GifStaticDao;
 import pl.akademiakodu.memy.model.Gif;
@@ -50,6 +47,16 @@ public class GifController {
         return "favorites";
     }
 
+//    @GetMapping("/gifs/{userName}")
+//public String userName(ModelMap modelMap){
+//        modelMap.put("userName", userName());
+//        return "/gif-details.html";
+//    }
+//}
 
+    @GetMapping("/home/{userName}")
+    public String useerName(@PathVariable String userName, ModelMap modelMap) {
+        modelMap.put("gif",gifDao.findByName(userName));
+        return "/gif-details";
+    }
 }
-

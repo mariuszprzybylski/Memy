@@ -11,5 +11,7 @@ public interface GifDao  {
 
 
     List<Gif> findAllFavorites();
+    Gif findByName(String name);
+
 
 }

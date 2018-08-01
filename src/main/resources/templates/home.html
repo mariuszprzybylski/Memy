@@ -46,7 +46,7 @@
 <div class="gifs container">
     <div class="row">
         <div th:each="gif : ${gifs}" class="col s12 l4">
-            <a th:href="@{|/gif/${gif.name}|}">
+            <a th:href="@{'/home/' + ${gif.userName}}">
                 <img th:src="@{|${gif.name}|}"/>
                 <!--      <a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a> -->
             </a>
@@ -58,6 +58,7 @@
     <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
     <script th:src="@{/app.js}"></script>
 </div>
+</form>
 <footer>
 
     <p>copy Paulina&Mariusz Java Bootcamp</p>

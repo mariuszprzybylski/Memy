@@ -13,12 +13,12 @@ public class GifStaticDao implements GifDao {
 
     static {
 
-        gifs.add(new Gif(1, "gifs/android-explosion.gif", true));
-        gifs.add(new Gif(2, "gifs/ben-and-mike.gif"));
-        gifs.add(new Gif(3, "gifs/book-dominos.gif"));
-        gifs.add(new Gif(4, "gifs/compiler-bot.gif", true));
-        gifs.add(new Gif(5, "gifs/cowboy-coder.gif"));
-        gifs.add(new Gif(6, "gifs/infinite-andrew.gif", true));
+        gifs.add(new Gif(1, "gifs/android-explosion.gif", true, "User1"));
+        gifs.add(new Gif(2, "gifs/ben-and-mike.gif", false, "User2"));
+        gifs.add(new Gif(3, "gifs/book-dominos.gif", false, "User3"));
+        gifs.add(new Gif(4, "gifs/compiler-bot.gif", true, "User4"));
+        gifs.add(new Gif(5, "gifs/cowboy-coder.gif", false, "User5"));
+        gifs.add(new Gif(6, "gifs/infinite-andrew.gif", true, "User6"));
     }
 
     public List<Gif> findAll() {
@@ -37,5 +37,10 @@ public class GifStaticDao implements GifDao {
         }
         return favGif;
     }
+    @Override
+    public Gif findByName(String name){
+        return gifs.stream().filter(gif -> gif.getUserName().equals(name)).findFirst().get();
+    }
+
 }
 
