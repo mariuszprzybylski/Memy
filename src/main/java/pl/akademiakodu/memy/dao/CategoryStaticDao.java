@@ -22,6 +22,11 @@ public class CategoryStaticDao implements CategoryDao {
         categories.add(new Category(3, "Programming"));
     }
 
+
+    public static List<Category> findAll1(){
+        return categories;
+    }
+
     @Override
     public List<Category> findAll() {
         return categories;

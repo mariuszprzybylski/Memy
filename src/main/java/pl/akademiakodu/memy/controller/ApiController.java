@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.akademiakodu.memy.dao.CategoryDao;
+import pl.akademiakodu.memy.dao.CategoryStaticDao;
 import pl.akademiakodu.memy.dao.GifDao;
 import pl.akademiakodu.memy.dao.GifStaticDao;
 import pl.akademiakodu.memy.model.Categories;
+import pl.akademiakodu.memy.model.Category;
 import pl.akademiakodu.memy.model.Gif;
 
 @RestController
@@ -22,9 +24,9 @@ public class ApiController {
         return gifDao.findAll();
     }
 
-//    @GetMapping("/category/{id}")
-//    public Categories show(@PathVariable Integer id) {
-//        return CategoryDao.findAll().stream().filter(p -> p.getId() == id).findFirst().get();
-//    }
+    @GetMapping("/category/{id}")
+    public Category show(@PathVariable Integer id) {
+        return CategoryStaticDao.findAll1().stream().filter(c->c.getId()==id).findFirst().get();
+    }
 }
 
