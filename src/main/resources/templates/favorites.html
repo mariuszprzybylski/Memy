@@ -16,7 +16,7 @@
     <div class="navbar-fixed">
         <nav>
             <div class="container">
-                <a th:href="@{/}" class="brand-logo">gif<span>.</span>lib</a>
+                <a th:href="@{/favorites}" class="brand-logo">gif<span>.</span>lib</a>
                 <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a th:href="@{/}">Explore</a></li>
@@ -45,7 +45,12 @@
     </div>
     <div class="gifs container">
         <div class="row">
-            <h1>Miejsce na wyświetlanie gifów:)</h1>
+            <div th:each="fav : ${favs}" class="col s12 l4">
+                <a th:href="@{|/gif/${fav.name}|}">
+                    <img th:src="@{|${fav.name}|}" />
+                          <!--<a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a>-->
+                </a>
+            </div>
         </div>
     </div>
 
@@ -53,4 +58,12 @@
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
 <script th:src="@{/app.js}"></script>
 </body>
+<footer>
+
+    <p>copy Paulina&Mariusz Java Bootcamp</p>
+
+    <div th:replace="fragments/footer :: 'footer'">
+    </div>
+
+</footer>
 </html>

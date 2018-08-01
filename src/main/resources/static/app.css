@@ -13,6 +13,11 @@ nav .brand-logo, nav ul li.active a {
     color: #fefefe;
 }
 
+footer {
+    margin: 2px auto 0 auto;
+    text-align: center;
+}
+
 nav ul li a {
     font-size: 1.1rem;
 }

@@ -1,6 +1,7 @@
 package pl.akademiakodu.memy.controller;
 
 
+import org.springframework.boot.autoconfigure.info.ProjectInfoProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
@@ -22,21 +23,33 @@ public class GifController {
     private GifDao gifDao = new GifStaticDao();
 
     @GetMapping("/")
-    public String home(ModelMap modelMap) {
+    public String home(ModelMap modelMap, Gif gif) {
         modelMap.put("gifs", gifDao.findAll());
         return "home";
     }
 
 
+    @GetMapping("/api/posts")
+    public Iterable<Gif> all() {
+        return gifDao.findAll();
+    }
+
+
+    @GetMapping("/search")
+    public String searchAll(@ModelAttribute Search search, ModelMap modelMap) {
+        modelMap.put("gifs", search.search(gifDao.findAll(), search.getQ()));
+        if (search.search(gifDao.findAll(), search.getQ()).size() == 0) {
+            modelMap.put("alert", "Nie ma takiego gifa");
+        }
+        return "home";
+    }
+
     @GetMapping("/favorites")
     public String findFavorites(ModelMap modelMap) {
-        modelMap.put("mems", gifDao.findAllFavorites());
+        modelMap.put("favs", gifDao.findAllFavorites());
         return "favorites";
     }
 
-    @GetMapping("/search")
-    public String searchAll (@ModelAttribute Search search, ModelMap modelMap) {
-        modelMap.put("search",search.search(gifDao.findAll(), search.getQ()));
-        return "home";
-    }
+
 }
+
