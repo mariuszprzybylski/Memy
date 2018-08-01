@@ -20,10 +20,7 @@ public class CategoryStaticDao implements CategoryDao {
         categories.add(new Category(1, "Android"));
         categories.add(new Category(2, "Funny"));
         categories.add(new Category(3, "Programming"));
-
-
     }
-
 
     @Override
     public List<Category> findAll() {
@@ -32,13 +29,10 @@ public class CategoryStaticDao implements CategoryDao {
 
     @Override
     public void addGif() {
-
     }
 
-
-
-    public static Category findByCategoryId(Integer id){
-        return categories.stream().filter(c->c.getId()==id).findFirst().get();
+    public static Category findByCategoryId(Integer id) {
+        return categories.stream().filter(c -> c.getId() == id).findFirst().get();
     }
 }
 
