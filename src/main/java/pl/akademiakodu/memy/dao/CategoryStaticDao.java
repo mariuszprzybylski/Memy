@@ -10,9 +10,9 @@ public class CategoryStaticDao implements CategoryDao {
    private static List<Category> categories = new ArrayList<>();
 
     static {
-        categories.add(new Category(1,"android"));
-        categories.add(new Category(2,"funny"));
-        categories.add(new Category(3,"programming"));
+        categories.add(new Category(1,"Android"));
+        categories.add(new Category(2,"Funny"));
+        categories.add(new Category(3,"Programming"));
 
 
     }
@@ -24,5 +24,10 @@ public class CategoryStaticDao implements CategoryDao {
 
     @Override
     public void addGif() {
+    }
+
+    @Override
+    public List<Category> findById() {
+        return null;
     }
 }
