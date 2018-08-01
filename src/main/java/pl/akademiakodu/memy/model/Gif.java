@@ -11,11 +11,19 @@ public class Gif {
 
     Gif(){}
 
-    public Gif(Integer id, String name, boolean favorite, String category) {
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Gif(Integer id, String name, boolean favorite, Category category) {
         this.id = id;
         this.name = name;
         this.favorite = favorite;
-
+        this.category = category;
     }
 
     public Gif(Integer id, String name, boolean favorite) {

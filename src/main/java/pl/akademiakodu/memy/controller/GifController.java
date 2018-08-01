@@ -11,6 +11,7 @@ import pl.akademiakodu.memy.dao.CategoryDao;
 import pl.akademiakodu.memy.dao.CategoryStaticDao;
 import pl.akademiakodu.memy.dao.GifDao;
 import pl.akademiakodu.memy.dao.GifStaticDao;
+import pl.akademiakodu.memy.model.Categories;
 import pl.akademiakodu.memy.model.Category;
 import pl.akademiakodu.memy.model.Gif;
 
@@ -50,7 +51,8 @@ public class GifController {
 
     @GetMapping ("/category/{id}")
     public String show (@PathVariable int id, ModelMap modelMap) {
-    modelMap.addAttribute("gif",categoryDao.findById());
+        modelMap.put("gifs", Categories.findByCategories(gifDao.findAll(),id));
+        modelMap.put("category",CategoryStaticDao.findByCategoryId(id));
     return "category";
     }
 

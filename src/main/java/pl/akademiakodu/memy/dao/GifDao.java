@@ -12,4 +12,5 @@ public interface GifDao  {
     void addGif(Gif gif);
 
     List<Gif> findAllFavorites();
+
 }
