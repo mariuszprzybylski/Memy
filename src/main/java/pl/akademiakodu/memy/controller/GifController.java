@@ -7,20 +7,27 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
+import pl.akademiakodu.memy.dao.CategoryDao;
+import pl.akademiakodu.memy.dao.CategoryStaticDao;
 import pl.akademiakodu.memy.dao.GifDao;
 import pl.akademiakodu.memy.dao.GifStaticDao;
+import pl.akademiakodu.memy.model.Categories;
+import pl.akademiakodu.memy.model.Category;
 import pl.akademiakodu.memy.model.Gif;
 import pl.akademiakodu.memy.model.Search;
 
 import javax.swing.*;
+
+import java.util.List;
 
 @Controller
 public class GifController {
 
 
     private GifDao gifDao = new GifStaticDao();
+    private CategoryDao categoryDao = new CategoryStaticDao();
+
 
     @GetMapping("/")
     public String home(ModelMap modelMap, Gif gif) {
@@ -28,11 +35,11 @@ public class GifController {
         return "home";
     }
 
-
     @GetMapping("/api/posts")
     public Iterable<Gif> all() {
         return gifDao.findAll();
     }
+
 
 
     @GetMapping("/search")
@@ -44,11 +51,27 @@ public class GifController {
         return "home";
     }
 
-    @GetMapping("/favorites")
-    public String findFavorites(ModelMap modelMap) {
+
+    @GetMapping ("/favorites")
+    public String findFavorites (ModelMap modelMap) {
+
         modelMap.put("favs", gifDao.findAllFavorites());
         return "favorites";
     }
+
+    @GetMapping ("/categories")
+    public String showCategories (ModelMap modelMap) {
+       modelMap.put("categories",categoryDao.findAll());
+       return "categories";
+    }
+
+    @GetMapping ("/category/{id}")
+    public String show (@PathVariable int id, ModelMap modelMap) {
+        modelMap.put("gifs", Categories.findByCategories(gifDao.findAll(),id));
+        modelMap.put("category",CategoryStaticDao.findByCategoryId(id));
+    return "category";
+    }
+
 
 
 }
