@@ -35,10 +35,7 @@ public class GifController {
         return "home";
     }
 
-    @GetMapping("/api/posts")
-    public Iterable<Gif> all() {
-        return gifDao.findAll();
-    }
+
 
 
 
