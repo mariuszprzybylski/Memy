@@ -5,34 +5,34 @@ public class Gif {
     private Integer id;
     private String name;
     private boolean favorite;
+    private Category category;
     private String userName;
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
+    public Gif(Integer id, String name, boolean favorite, Category category, String userName) {
+        this.id = id;
+        this.name = name;
+        this.favorite = favorite;
+        this.category = category;
         this.userName = userName;
     }
 
     public Gif() {
     }
 
-    public Gif(Integer id, String name, boolean favorite, String userName) {
-        this.id = id;
-        this.name = name;
-        this.favorite = favorite;
-        this.userName = userName;
+    public Category getCategory() {
+        return category;
     }
 
-    public Gif(String name, boolean favorite) {
-        this.name = name;
-        this.favorite = favorite;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
-    public Gif(Integer id, String name) {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
         this.id = id;
-        this.name = name;
     }
 
     public String getName() {
@@ -51,20 +51,22 @@ public class Gif {
         this.favorite = favorite;
     }
 
-    public Integer getId() {
-        return id;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     @Override
     public String toString() {
         return "Gif{" +
-                "id=" + id +
+                "category=" + category +
+                ", id=" + id +
                 ", name='" + name + '\'' +
                 ", favorite=" + favorite +
+                ", userName='" + userName + '\'' +
                 '}';
     }
 }
