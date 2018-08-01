@@ -34,10 +34,10 @@
 <div class="search-bar container">
     <div class="row">
         <div class="col s12">
-            <form action="#" method="get">
+            <form action="/search" method="get">
                 <div class="input-field">
                     <input name="q" type="search" placeholder="Wyszukiwanie..." required="required" autocomplete="off"/>
-                    <i class="material-icons">search</i>
+                    <i type="button" class="material-icons">search</i>
                 </div>
             </form>
         </div>
@@ -47,17 +47,17 @@
     <div class="row">
         <div th:each="gif : ${gifs}" class="col s12 l4">
             <a th:href="@{|/gif/${gif.name}|}">
-                <img th:src="@{|${gif.name}|}" />
+                <img th:src="@{|${gif.name}|}"/>
                 <!--      <a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a> -->
             </a>
         </div>
+        <div class row="row"><a th:text="${alert}"/></div>
     </div>
-</div>
 
     <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
     <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
     <script th:src="@{/app.js}"></script>
-
+</div>
 <footer>
 
     <p>copy Paulina&Mariusz Java Bootcamp</p>

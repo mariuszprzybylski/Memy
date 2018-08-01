@@ -11,12 +11,13 @@ public class GifStaticDao implements GifDao {
 
     private static List<Gif> gifs = new ArrayList<>();
 
+
   static {
 
-        gifs.add(new Gif(1, "gifs/android-explosion.gif",true));
+        gifs.add(new Gif(1, "gifs/android-explosion.gif", true));
         gifs.add(new Gif(2, "gifs/ben-and-mike.gif"));
         gifs.add(new Gif(3, "gifs/book-dominos.gif"));
-        gifs.add(new Gif(4, "gifs/compiler-bot.gif",true));
+        gifs.add(new Gif(4, "gifs/compiler-bot.gif", true));
         gifs.add(new Gif(5, "gifs/cowboy-coder.gif"));
         gifs.add(new Gif(6, "gifs/infinite-andrew.gif",true));
 
@@ -25,25 +26,19 @@ public class GifStaticDao implements GifDao {
     public List<Gif> findAll() {
         return gifs;
     }
-    @Override
-    public void addGif(Gif gif) {
 
-        gifs.add(gif);
 
-    }
 
     @Override
     public List<Gif> findAllFavorites() {
-        List<Gif> favgif = new ArrayList<>();
 
-        for (Gif gif: gifs) {
-
-            if ((gif.isFavorite() == true)) {
-                favgif.add(gif);
+        List<Gif> favGif = new ArrayList<>();
+        for (Gif gifList : gifs) {
+            if (gifList.isFavorite() == true) {
+                favGif.add(gifList);
             }
         }
-        return favgif;
+        return favGif;
     }
-
 }
 

@@ -9,7 +9,7 @@ public interface GifDao  {
 
     public List<Gif> findAll();
 
-    void addGif(Gif gif);
 
     List<Gif> findAllFavorites();
+
 }
