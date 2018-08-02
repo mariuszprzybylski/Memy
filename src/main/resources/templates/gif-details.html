@@ -11,6 +11,13 @@
     <link rel="stylesheet" th:href="@{/app.css}" />
 
     <title th:text="'giflib | ' + ${gif.name}">Kwejk</title>
+
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script>
+
 </head>
 <body>
 <div th:replace="fragments/header :: 'header'">
@@ -20,7 +27,27 @@
         <div class="frame row">
             <div class="col s12">
                 <img th:src="@{'/' + ${gif.name}}" alt="gif" />
-                <a href="#" th:class="(${gif.favorite} ? 'un' : '') + 'mark favorite'"></a>
+                <a href="#"  th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a>
+
+                <script>
+
+
+                    $(document).ready(function () {
+                        $('div div div a').click( function(){
+                            if ( $(this).hasClass('mark favorite') ) {
+                                $(this).removeClass('mark favorite');
+                                $(this).addClass('unmark favorite');
+                            } else {
+                                $('div div div a').removeClass('unmark favorite');
+                                $(this).addClass('mark favorite');
+                            }
+                        });
+                    })
+
+
+                </script>
+
+
             </div>
         </div>
         <div class="row">
