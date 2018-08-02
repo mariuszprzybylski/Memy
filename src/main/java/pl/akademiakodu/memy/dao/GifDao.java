@@ -14,5 +14,9 @@ public interface GifDao {
 
     Gif findByName(String name);
 
+    public void toggleGif(int id);
+
+    public Gif findById(int id);
+
 
 }
