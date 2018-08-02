@@ -30,11 +30,12 @@ public class GifController {
 
     @GetMapping("/search")
     public String searchAll(@ModelAttribute Search search, ModelMap modelMap) {
-        modelMap.put("gifs", search.search(gifDao.findAll(), search.getQ()));
-        if (search.search(gifDao.findAll(), search.getQ()).size() == 0) {
+        modelMap.put("gifs", search.searchGif(gifDao.findAll(), search.getQ()));
+        if (search.searchGif(gifDao.findAll(), search.getQ()).size() == 0) {
             modelMap.put("alert", "Nie ma takiego gifa");
         }
-        return "home";
+        return"home";
+
     }
 
     @GetMapping("/favorites")

@@ -47,5 +47,6 @@ public class GifStaticDao implements GifDao {
         return gifs.stream().filter(gif -> gif.getUserName().equals(name)).findFirst().get();
     }
 
+
 }
 

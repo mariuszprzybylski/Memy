@@ -1,5 +1,7 @@
 package pl.akademiakodu.memy.model;
 
+import sun.net.www.content.image.gif;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,14 +16,15 @@ public class Search {
         this.q = q;
     }
 
-    public List<Gif> search(List<Gif> gifList, String word) {
+    public List<Gif> searchGif(List<Gif> gifList, String word) {
 
         List<Gif> search = new ArrayList<>();
         for (Gif serchList : gifList) {
-            if (serchList.getName().contains(word)) {
+            if ((serchList.getName().contains(word))||(serchList.getCategory().getName().contains(word))) {
                 search.add(serchList);
             }
         }
         return search;
     }
+
 }

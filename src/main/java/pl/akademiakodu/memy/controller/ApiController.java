@@ -18,6 +18,7 @@ import pl.akademiakodu.memy.model.Gif;
 public class ApiController {
 
     private static GifDao gifDao = new GifStaticDao();
+    private static CategoryDao categoryDao = new CategoryStaticDao();
 
     @GetMapping("/gifs")
     public Iterable<Gif> all() {
@@ -26,7 +27,11 @@ public class ApiController {
 
     @GetMapping("/category/{id}")
     public Category show(@PathVariable Integer id) {
-        return CategoryStaticDao.findAll1().stream().filter(c->c.getId()==id).findFirst().get();
+        return CategoryStaticDao.findAll1().stream().filter(c -> c.getId() == id).findFirst().get();
+    }
+
+    @GetMapping("/categories")
+    public Iterable<Category> allCategory() {
+        return categoryDao.findAll();
     }
 }
-
