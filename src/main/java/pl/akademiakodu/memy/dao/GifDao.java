@@ -14,6 +14,5 @@ public interface GifDao {
 
     Gif findByName(String name);
 
-//    public List<Gif> findAll1();
 
 }

@@ -62,4 +62,5 @@ public class GifController {
         modelMap.put("category", CategoryStaticDao.findByCategoryId(id));
         return "category";
     }
+
 }
