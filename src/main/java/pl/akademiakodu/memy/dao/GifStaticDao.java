@@ -47,5 +47,26 @@ public class GifStaticDao implements GifDao {
         return gifs.stream().filter(gif -> gif.getUserName().equals(name)).findFirst().get();
     }
 
+    @Override
+    public void toggleGif(int id) {
+        Gif gif=findById(id);
+        if (gif.isFavorite()) {
+            gif.setFavorite(false);
+        } else {
+            gif.setFavorite(true);
+        }
+
+    }
+
+    @Override
+    public Gif findById(int id) {
+        for (Gif gif: gifs) {
+            if (gif.getId()==id) {
+                return gif;
+            }
+        }
+        return null;
+    }
+
 }
 
